@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>User List</h2>
+  <div class="row form-floating mb-3">
+    <div class="col">
+      <label for="firstName">First Name</label>
+      <input class="form-control" type="text" id="firstName" [(ngModel)]="firstName" />
+    </div>
+    <div class="col">
+      <label for="lastName">Last Name</label>
+      <input class="form-control" type="text" id="lastName" [(ngModel)]="lastName" />
+    </div>
+    <div class="col d-flex " style="margin-top: 2%;">
+      <button style="margin-right: 3%;" type="button" class="btn btn-outline-success btn-sm"
+        (click)="addUser(firstName, lastName)">Add User</button>
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="reset()">Reset</button>
+    </div>
+  </div>
+  <div class="d-inline-flex p-2">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let user of users; let i = index">
+        {{ user.firstName }} {{ user.lastName }}
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(i)"><i class="bi bi-trash"></i></button>
+      </li>
+    </ul>
+  </div>
+</div>
